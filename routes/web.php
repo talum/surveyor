@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
-  return 'hello world';
-    // return view('welcome');
+    return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/surveys', 'SurveysController@index');
+Route::get('/surveys/{id}', 'SurveysController@show');
