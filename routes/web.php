@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/surveys', 'SurveysController@index');
 Route::get('/surveys/{id}', 'SurveysController@show');
+Route::post('/survey_responses', ['uses' => 'SurveyResponsesController@store', 'as' => 'survey_response']);

@@ -12,4 +12,10 @@ class Survey extends Model
     {
         return $this->hasMany('App\Question');
     }
+
+    public function surveyResponses()
+    {
+        return $this->hasMany('App\SurveyResponse');
+    }
+
 }
