@@ -24,7 +24,7 @@ class SurveyResponsesController extends Controller
         foreach ($user_responses as $question_id => $response_id) {
 
           UserResponse::create([
-            "user_id" => $current_user_id,
+            "question_id" => $question_id,
             "response_id" => $response_id,
             "survey_response_id" => $survey_response->id
           ]);

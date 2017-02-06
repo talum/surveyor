@@ -18,4 +18,8 @@ class Survey extends Model
         return $this->hasMany('App\SurveyResponse');
     }
 
+    public function userResponses()
+    {
+        return $this->hasManyThrough('App\UserResponse', 'App\SurveyResponse');
+    }
 }

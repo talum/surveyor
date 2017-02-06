@@ -27,19 +27,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function userResponses()
-    {
-        return $this->hasMany('App\UserResponse');
-    }
-
     public function responses()
     {
-        return $this->hasMany('App\Response', 'App\UserResponse');
+        return $this->hasManyThrough('App\Response', 'App\UserResponse');
     }
 
     public function surveyResponses()
     {
         return $this->hasMany('App\SurveyResponse');
+    }
+
+    public function userResponses()
+    {
+        return $this->hasManyThrough('App\UserResponse', 'App\SurveyResponse');
     }
 
 }

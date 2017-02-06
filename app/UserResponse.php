@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserResponse extends Model
 {
-    protected $fillable = ['survey_response_id', 'user_id', 'response_id'];
+    protected $fillable = ['survey_response_id', 'question_id', 'response_id'];
 
-    public function user()
+    public function question()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Question');
     }
 
     public function response()
