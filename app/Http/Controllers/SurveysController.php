@@ -18,4 +18,11 @@ class SurveysController extends Controller
         $data["questions"] = $questions;
         return view('surveys.show', $data);
     }
+
+    public function index()
+    {
+        $surveys = Survey::all();
+        $data['surveys'] = $surveys;
+        return view('surveys.index', $data);
+    }
 }
