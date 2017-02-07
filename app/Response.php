@@ -13,4 +13,8 @@ class Response extends Model
         return $this->belongsTo('App\Question');
     }
 
+    public function userResponses()
+    {
+        return $this->hasMany('App\UserResponse');
+    }
 }

@@ -25,4 +25,13 @@ class SurveysController extends Controller
         $data['surveys'] = $surveys;
         return view('surveys.index', $data);
     }
+
+    public function results(Request $request)
+    {
+        $survey_id = $request->id;
+        $survey = Survey::find($survey_id);
+
+        $data['survey'] = $survey;
+        return view('surveys.results', $data);
+    }
 }

@@ -20,5 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->middleware('auth');
 
 Route::get('/surveys', 'SurveysController@index')->middleware('auth');
+Route::get('/surveys/{id}/results', 'SurveysController@results')->middleware('auth');
 Route::get('/surveys/{id}', 'SurveysController@show')->middleware('auth');
 Route::post('/survey_responses', ['uses' => 'SurveyResponsesController@store', 'as' => 'survey_response'])->middleware('auth');
