@@ -9,9 +9,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Survey;
 use App\SurveyResponse;
 use App\UserResponse;
-use App\Question;
 
-class SurveyTest extends TestCase
+class SurveyResponseTest extends TestCase
 {
     use DatabaseMigrations;
     /**
@@ -19,32 +18,25 @@ class SurveyTest extends TestCase
      *
      * @return void
      */
-    public function testSurveyConstructor()
+    public function testSurveyResponseConstructor()
     {
-        $survey = new Survey(['name' => 'new survey']);
-        $this->assertEquals('new survey', $survey->name);
+        $survey_response = new SurveyResponse(['survey_id' => '1', 'user_id' => 1]);
+        $this->assertEquals(1, $survey_response->survey_id);
     }
     
-    public function testQuestionAssociation()
-    {
-        $survey = Survey::create(['name' => 'new survey']);
-        $question = Question::create(['content' => 'new question', 'survey_id' => $survey->id]);
-        $this->assertCount(1, $survey->questions);
-    }
-
-    public function testSurveyResponsesAssociation()
+    public function testSurveysAssociation()
     {
         $survey = Survey::create(['name' => 'new survey']);
         $survey_response = SurveyResponse::create(['survey_id' => $survey->id, 'user_id' => 1]);
-        $this->assertCount(1, $survey->surveyResponses);
+        $this->assertCount(1, $survey_response->survey);
     }
 
-    public function testUserResponsesAssociation()
+    public function testUserResponseAssociation()
     {
         $survey = Survey::create(['name' => 'new survey']);
         $survey_response = SurveyResponse::create(['survey_id' => $survey->id, 'user_id' => 1]);
         $user_response = UserResponse::create(['survey_response_id' => $survey_response->id, 'question_id' => 1, 'response_id' => 1]);
-        $this->assertCount(1, $survey->userResponses);
+        $this->assertCount(1, $survey_response->userResponses);
     }
 
 }

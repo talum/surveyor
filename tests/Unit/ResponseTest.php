@@ -11,6 +11,7 @@ use App\Response;
 
 class ResponseTest extends TestCase
 {
+    use DatabaseMigrations;
     /**
      * A basic test example.
      *
