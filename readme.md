@@ -42,6 +42,7 @@
     PUSHER_APP_SECRET=
 
   ```
+- Run `touch database/database.sqlite`
 - Run `php artisan key:generate`
 - Run `php artisan migrate`
 - Run `php artisan db:seed`
