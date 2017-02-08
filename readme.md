@@ -4,6 +4,7 @@
 - Fork and/or clone repo
 - Make sure you have PHP > 5.6
 - Install Laravel and Composer if you don't already have them installed
+- Run `composer install`
 - Run `php artisan key:generate`
 - Set up the .env
   - I used the following configs
